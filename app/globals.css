@@ -5,6 +5,9 @@
   --color-secondary: #5d4037;
   --color-tertiary: #00a86b;
   --color-quaternary: #fffde7;
+  --color-background-body: #e2e6b4;
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
 }
 
 body {
