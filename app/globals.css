@@ -10,6 +10,21 @@
   --font-body: "Be Vietnam Pro", sans-serif;
 }
 
+@utility center-elements {
+  @apply flex items-center justify-center;
+}
+@utility gap-elements {
+  @apply gap-4;
+}
+
+@utility btn-hero {
+  @apply font-body rounded-full font-bold;
+}
+
+@utility text-title {
+  @apply font-headline text-4xl font-black md:text-[40px] lg:text-5xl;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
