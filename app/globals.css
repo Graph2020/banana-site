@@ -17,6 +17,10 @@
   @apply gap-4;
 }
 
+@utility space-sections {
+  @apply p-4 md:p-10 lg:p-20;
+}
+
 @utility btn-hero {
   @apply font-body rounded-full font-bold;
 }

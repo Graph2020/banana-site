@@ -31,8 +31,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${vietnamPro.variable} h-full antialiased`}
     >
-      <NavBar />
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
