@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import NavBar from "./sections/NavBar";
+import Footer from "./sections/Footer";
 
 const geistSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

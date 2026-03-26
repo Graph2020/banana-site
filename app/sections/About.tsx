@@ -7,7 +7,7 @@ import Card from "../components/Card";
 export default function About(): JSX.Element {
   return (
     <section className="space-sections mt-20 flex min-h-screen w-full flex-col gap-2 rounded-tl-2xl rounded-tr-2xl bg-[#edf1d7] pt-20 md:mt-0">
-      <div className="gap-elements flex w-full flex-col sm:flex-row sm:items-center sm:justify-around md:justify-between">
+      <div className="gap-elements flex w-full flex-col sm:flex-row sm:items-center sm:justify-around md:justify-between lg:mb-12">
         <div className="space-y-4">
           <h1 className="text-title text-secondary">About page</h1>
           <p className="font-body max-w-96 lg:text-lg">
@@ -22,7 +22,7 @@ export default function About(): JSX.Element {
         </div>
       </div>
       {/* Banana cards */}
-      <div className="mt-10 flex w-full flex-col gap-8 md:flex-row">
+      <div className="mt-10 flex w-full flex-col gap-8 md:flex-row lg:scale-130 lg:justify-center lg:gap-25">
         <Card
           spanTextColor="black"
           title="Banana One"
@@ -44,7 +44,7 @@ export default function About(): JSX.Element {
         <Card
           spanTextColor="orange"
           title="Protein Banana"
-          description="Чувак в щоці від банана, як ще це можна описати я не зроз"
+          description="Чувак в щоці від банана, як ще це можна описати я не зрозумів"
           spanLabel="power"
           spanBg="#e2e6b4"
           price={30}
