@@ -5,7 +5,7 @@ import { CiShare2 } from "react-icons/ci";
 import { AiOutlineLike } from "react-icons/ai";
 export default function Footer() {
   return (
-    <footer className="gap-elements font-body center-elements flex h-64 w-full flex-col rounded-tl-2xl rounded-tr-2xl bg-white p-3 text-center md:h-48 md:flex-row lg:text-lg">
+    <footer className="gap-elements font-body center-elements flex h-64 w-full flex-col rounded-tl-2xl rounded-tr-2xl bg-[#f4f9dc] p-3 text-center md:h-48 md:flex-row lg:text-lg">
       <div className="md:text-start">
         <h2 className="mini-title">Топ Банана</h2>
         <p>© 2026 Топ Банана. Всі права захищені.</p>

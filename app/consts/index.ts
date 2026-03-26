@@ -13,8 +13,8 @@ export const bananaLinks: BananaLinks[] = [
     id: nanoid(),
   },
   {
-    name: "Банана факт",
-    href: "/facts",
+    name: "Типи Банана",
+    href: "/typeBanana",
     id: nanoid(),
   },
   {

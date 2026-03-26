@@ -1,20 +1,47 @@
+"use client";
 import type { JSX } from "react";
 import clsx from "clsx";
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import Card from "../components/Card";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextAnimation } from "../animation/TextAnimation";
+
+gsap.registerPlugin(ScrollTrigger);
 export default function About(): JSX.Element {
+  const [masterTl] = useState(() => gsap.timeline());
+  const sectionRef = React.useRef<HTMLElement>(null);
+  useGSAP(
+    () => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 80%",
+        animation: masterTl,
+        markers: true,
+      });
+    },
+    { scope: sectionRef },
+  );
   return (
-    <section className="space-sections mt-20 flex min-h-screen w-full flex-col gap-2 rounded-tl-2xl rounded-tr-2xl bg-[#edf1d7] pt-20 md:mt-0">
+    <section
+      ref={sectionRef}
+      className="space-sections mt-20 flex min-h-screen w-full flex-col gap-2 rounded-tl-2xl rounded-tr-2xl bg-[#edf1d7] pt-20 md:mt-0"
+    >
       <div className="gap-elements flex w-full flex-col sm:flex-row sm:items-center sm:justify-around md:justify-between lg:mb-12">
         <div className="space-y-4">
-          <h1 className="text-title text-secondary">About page</h1>
-          <p className="font-body max-w-96 lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            modi error nam eum provident, ipsa sed deleniti nobis, blanditiis
-            molestias
-          </p>
+          <TextAnimation splitType="chars" timeline={masterTl}>
+            <h1 className="text-title text-secondary">About page</h1>
+          </TextAnimation>
+          <TextAnimation splitType="lines" timeline={masterTl}>
+            <p className="font-body max-w-96 lg:text-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              modi error nam eum provident, ipsa sed deleniti nobis, blanditiis
+              molestias
+            </p>
+          </TextAnimation>
         </div>
         <div className="gap-elements flex">
           <ButtonArrow icon={<FaArrowLeft />} isActive={false} />

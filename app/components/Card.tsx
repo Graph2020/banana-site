@@ -1,7 +1,13 @@
+"use client";
 import type { JSX } from "react";
 import Image from "next/image";
 import React from "react";
 import { FaShoppingBasket } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 interface CardProps {
   imageSrc: string;
   title: string;
@@ -21,9 +27,59 @@ export default function Card({
   spanBg,
   spanTextColor,
 }: CardProps): JSX.Element {
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const imageRef = React.useRef<HTMLDivElement>(null);
+  const descriptionRef = React.useRef<HTMLParagraphElement>(null);
+  useGSAP(
+    () => {
+      if (!cardRef.current) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tl.from(cardRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.5,
+      })
+        .from(imageRef.current, {
+          scale: 0,
+          ease: "bounce",
+          duration: 1,
+        })
+        .from(
+          "span",
+          {
+            x: 20,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3",
+          },
+          "-=0.5",
+        )
+        .from(descriptionRef.current, {
+          y: 20,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3",
+        });
+    },
+    { scope: cardRef },
+  );
   return (
-    <div className="font-body gap-elements group relative flex h-96 w-full flex-col rounded-2xl bg-white p-4 transition-transform duration-300 hover:-translate-y-2 md:w-72">
-      <div className="relative h-48 w-full overflow-hidden rounded-2xl">
+    <div
+      ref={cardRef}
+      className="font-body gap-elements group relative flex h-96 w-full flex-col rounded-2xl bg-white p-4 transition-transform duration-300 hover:-translate-y-2 md:w-72"
+    >
+      <div
+        ref={imageRef}
+        className="relative h-48 w-full overflow-hidden rounded-2xl"
+      >
         <Image
           fill={true}
           src={imageSrc}
@@ -37,7 +93,7 @@ export default function Card({
           {spanLabel}
         </span>
       </div>
-      <div>
+      <div ref={descriptionRef}>
         <h2 className="font-headline mb-1 text-xl font-bold">{title}</h2>
         <p>{description}</p>
       </div>

@@ -22,7 +22,7 @@
 }
 
 @utility btn-hero {
-  @apply font-body rounded-full font-bold;
+  @apply font-body cursor-pointer rounded-full font-bold;
 }
 
 @utility mini-title {
