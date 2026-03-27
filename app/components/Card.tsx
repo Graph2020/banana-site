@@ -6,17 +6,8 @@ import { FaShoppingBasket } from "react-icons/fa";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import type { CardProps } from "../types/type";
 gsap.registerPlugin(ScrollTrigger);
-interface CardProps {
-  imageSrc: string;
-  title: string;
-  description: string;
-  price: number;
-  spanLabel: string;
-  spanBg: string;
-  spanTextColor: string;
-}
 
 export default function Card({
   imageSrc,

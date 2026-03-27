@@ -30,7 +30,7 @@
 }
 
 @utility text-title {
-  @apply font-headline text-4xl font-black md:text-[40px] lg:text-5xl;
+  @apply font-headline text-4xl font-black md:text-5xl lg:text-6xl;
 }
 
 @utility footerBtn {
