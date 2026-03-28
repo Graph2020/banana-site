@@ -19,3 +19,14 @@ export type BananaFilterProps = Omit<CardProps, "price"> & {
   cardBg: string;
   type: string;
 };
+
+export type HeroTextProps = {
+  title: string;
+  subtitle: string;
+  description: string;
+  buttonTextOne: string;
+  buttonTextTwo: string;
+  spanText: string;
+  icon: React.ComponentType<{ className?: string }>;
+  spanRef?: React.RefObject<HTMLSpanElement>;
+};
