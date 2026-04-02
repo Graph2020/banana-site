@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import QualityBanana from "./sections/QualityBanana";
+import ToggleBg from "./components/ToggleBg";
 
 export default function Home() {
   return (

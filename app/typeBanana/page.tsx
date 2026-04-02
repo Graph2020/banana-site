@@ -13,11 +13,8 @@ export default function FilterBanana(): JSX.Element {
   const filteredBananas = banan
     ? BANANA_CARDS.filter((banana) => banana.type === banan)
     : BANANA_CARDS;
-  const bananas = filteredBananas.map((banana, index) => (
-    <Link
-      href={`/typeBanana/${banana.title.toLowerCase().replace(/\s+/g, "-")}`}
-      key={index}
-    >
+  const bananas = filteredBananas.map((banana) => (
+    <Link href={`/typeBanana/${banana.id}`} key={banana.id}>
       <BananaFilterComponent
         imageSrc={banana.imageSrc}
         title={banana.title}
@@ -44,7 +41,9 @@ export default function FilterBanana(): JSX.Element {
         жовтий алмазний пофіг замовляй
       </p>
       <SearchBanana />
-      <div className="gap-elements flex flex-col">{bananas}</div>
+      <div className="gap-elements flex flex-col md:flex-row md:flex-wrap">
+        {bananas}
+      </div>
     </main>
   );
 }

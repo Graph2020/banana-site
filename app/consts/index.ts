@@ -21,6 +21,7 @@ export const BANANA_CARDS = [
     cardBg: "#f4f8e6",
     Icon: FaRegHeart,
     type: "blue",
+    id: 1,
   },
   {
     imageSrc: "/bananaImages/purpleBanan.png",
@@ -33,6 +34,7 @@ export const BANANA_CARDS = [
     cardBg: "#eef2dc",
     Icon: FaShareAlt,
     type: "blue",
+    id: 2,
   },
   {
     imageSrc: "/bananaImages/blueBanan.png",
@@ -45,6 +47,7 @@ export const BANANA_CARDS = [
     cardBg: "#f4f8e6",
     Icon: FaRegSnowflake, // Assumed icon since it was covered by the alert
     type: "red",
+    id: 3,
   },
   {
     imageSrc: "/bananaImages/fireBanana.png",
@@ -57,6 +60,7 @@ export const BANANA_CARDS = [
     cardBg: "#eef2dc",
     Icon: FaStar,
     type: "red",
+    id: 4,
   },
   {
     imageSrc: "/bananaImages/redBanan.png",
@@ -69,6 +73,7 @@ export const BANANA_CARDS = [
     cardBg: "#f4f8e6",
     Icon: FaBolt,
     type: "red",
+    id: 5,
   },
   {
     imageSrc: "/bananaImages/orangeBanan.png",
@@ -81,6 +86,7 @@ export const BANANA_CARDS = [
     cardBg: "#eef2dc",
     Icon: FaLeaf, // Assumed icon since it was covered by the alert
     type: "orange",
+    id: 6,
   },
 ];
 // Navbar links

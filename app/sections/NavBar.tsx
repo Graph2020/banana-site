@@ -1,18 +1,19 @@
 "use client";
 import type { JSX } from "react";
 import React, { useRef } from "react";
-import { BananaLinks } from "../types/type";
 import { bananaLinks } from "../consts";
 import { LuBanana } from "react-icons/lu";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
-import { TextAnimation } from "../animation/TextAnimation";
 import { SplitText } from "gsap/all";
+import ToggleBg from "../components/ToggleBg";
+import useToggle from "../hooks/useToggle";
 gsap.registerPlugin(SplitText);
 
 export default function NavBar(): JSX.Element {
+  const { isToggled, toggle } = useToggle();
   const path = usePathname();
   const links = bananaLinks.map(({ name, href, id }) => (
     <Link
@@ -69,7 +70,7 @@ export default function NavBar(): JSX.Element {
   return (
     <nav
       ref={navRef}
-      className="fixed inset-0 z-50 flex h-12 w-full items-center justify-between rounded-br-3xl rounded-bl-3xl bg-[#fbffd2] p-4"
+      className="fixed top-0 right-0 left-0 z-50 flex h-12 w-full items-center justify-between rounded-br-3xl rounded-bl-3xl bg-[#fbffd2] p-4"
     >
       <h3 id="brand" className="font-headline text-xl font-black italic">
         Банановий рай
@@ -82,10 +83,12 @@ export default function NavBar(): JSX.Element {
       <button
         id="btn-banana"
         className="bg-tertiary/90 text-primary/90 py-x w-fit cursor-pointer rounded-full px-2 transition-transform duration-300 hover:scale-105 hover:-rotate-3 active:scale-95 md:hidden"
+        onClick={() => toggle()}
       >
         Дай банана
       </button>
       <LuBanana className="text-secondary hidden text-2xl md:block" />
+      {isToggled && <ToggleBg toggled={isToggled} onClose={toggle} />}
     </nav>
   );
 }

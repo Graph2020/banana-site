@@ -13,7 +13,7 @@ export default function HeroText({
   spanRef,
 }: HeroTextProps): JSX.Element {
   return (
-    <div className="relative z-10 flex w-full max-w-4xl flex-col items-start gap-4">
+    <div className="relative z-10 flex flex-col items-start gap-4">
       <span
         ref={spanRef}
         className="font-body inline-block rounded-full bg-emerald-400 px-2 py-0.5 text-xs font-bold tracking-wide text-[#006817] uppercase"

@@ -28,5 +28,5 @@ export type HeroTextProps = {
   buttonTextTwo: string;
   spanText: string;
   icon: React.ComponentType<{ className?: string }>;
-  spanRef?: React.RefObject<HTMLSpanElement>;
+  spanRef?: React.RefObject<HTMLSpanElement> | null;
 };

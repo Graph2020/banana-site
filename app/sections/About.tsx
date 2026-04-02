@@ -20,7 +20,6 @@ export default function About(): JSX.Element {
         trigger: sectionRef.current,
         start: "top 80%",
         animation: masterTl,
-        markers: true,
       });
     },
     { scope: sectionRef },
