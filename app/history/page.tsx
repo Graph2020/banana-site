@@ -1,12 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React, { JSX, useRef } from "react";
 import { SiGamebanana } from "react-icons/si";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
-export default function History() {
+
+export default function History(): JSX.Element {
   const bananaRef = useRef(null);
   const containerRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" });
@@ -88,7 +89,6 @@ export default function History() {
         className="center-elements order-1 mt-60 h-48 lg:mt-50 lg:self-start"
         ref={containerRef}
       >
-        {/* 3. Put the BANANA ref on a clean inner div */}
         <div ref={bananaRef}>
           <SiGamebanana size={128} />
         </div>

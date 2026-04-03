@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import type { JSX } from "react";
 import Form from "next/form";
 import { IoMdSearch } from "react-icons/io";
@@ -8,7 +8,7 @@ import BananaFilterComponent from "../components/BananaFilterComponent";
 import { BANANA_CARDS } from "../consts";
 import Link from "next/link";
 
-export default function FilterBanana(): JSX.Element {
+function FilteredBananasList(): JSX.Element {
   const searchParams = useSearchParams();
   const banan = searchParams.get("banan");
   const filteredBananas = banan
@@ -32,6 +32,14 @@ export default function FilterBanana(): JSX.Element {
   ));
 
   return (
+    <div className="gap-elements flex flex-col md:flex-row md:flex-wrap">
+      {bananas}
+    </div>
+  );
+}
+
+export default function FilterBanana(): JSX.Element {
+  return (
     <main className="space-sections gap-elements bg-background-body font-body flex min-h-screen w-full flex-col items-center">
       <div className="mt-20 text-center">
         <h1 className="text-title text-secondary">Знайди той</h1>
@@ -44,9 +52,11 @@ export default function FilterBanana(): JSX.Element {
         алмазний замовляй
       </p>
       <SearchBanana />
-      <div className="gap-elements flex flex-col md:flex-row md:flex-wrap">
-        {bananas}
-      </div>
+      <Suspense
+        fallback={<div className="p-10 text-xl">Завантаження бананів...</div>}
+      >
+        <FilteredBananasList />
+      </Suspense>
     </main>
   );
 }

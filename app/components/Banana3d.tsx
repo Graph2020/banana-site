@@ -1,9 +1,10 @@
 "use client";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
 
-export function Banana3d(props) {
-  const { nodes, materials } = useGLTF("/banana.glb");
+export function Banana3d(props: any) {
+  const { nodes, materials } = useGLTF("/banana.glb") as any;
   return (
     <group {...props} dispose={null}>
       <mesh
