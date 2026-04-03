@@ -11,7 +11,7 @@ export default function NotFound(): JSX.Element {
         Сторінку не знайдено
       </h1>
       <p className="text-secondary/70 max-w-xl">
-        Йомайо щось не ну туди клікнули чи це я не доробив ідк
+        Щось не ну туди натиснули чи це я не доробив ідк
       </p>
       <button
         onClick={() => router.back()}

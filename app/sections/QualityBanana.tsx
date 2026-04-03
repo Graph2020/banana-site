@@ -25,7 +25,6 @@ export default function QualityBanana() {
         trigger: sectionRef.current,
         start: "top 80%",
         toggleActions: "play none none none",
-        markers: true,
       },
     });
   }, []);
@@ -36,11 +35,11 @@ export default function QualityBanana() {
     >
       <div className="gap-elements bg-primary text-secondary mt-10 flex h-80 w-full flex-col rounded-4xl px-8 py-10 md:mt-0">
         <h2 className="mini-title font-headline">
-          Кароче банан жоскій супер дупєр пакупаєм
+          Банан жоскій супер дупєр пакупаєм
         </h2>
         <p className="text-secondary/50">
-          Я кароче жоско погоджуюсь тому що банани під жоскім контролєм тобто
-          банани реально вкусні ням ням ням
+          Я жоско погоджуюсь тому що банани під жоскім контролєм тобто банани
+          реально вкусні ням ням ням
         </p>
       </div>
 
@@ -56,7 +55,7 @@ export default function QualityBanana() {
       />
 
       <div className="flex h-96 w-full flex-col gap-2.5 rounded-3xl bg-[#d7ddba] p-8 md:col-span-3 md:h-80">
-        <h1 className="mini-title">Папєрєдження</h1>
+        <h1 className="mini-title">Попередження!</h1>
         <p className="text-secondary/70">
           Ви мабуть не знали але якщо ходити по тротуару і побачити там бананову
           шкірку та настолочити на неї то ви можете впасти типу це не кльово ой

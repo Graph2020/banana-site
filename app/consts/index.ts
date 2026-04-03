@@ -8,16 +8,16 @@ import {
   FaBolt,
   FaLeaf,
 } from "react-icons/fa";
-// Filtered banana cards data
+
 export const BANANA_CARDS = [
   {
     imageSrc: "/bananaImages/iceBanana.png",
     title: "Льодяний банан",
     description:
-      "Я в шоці такого банана я ще не бачив дякую джемінай що згенерував таку картинку вау вау (типу жоско здивований)",
+      "Я в шоці такого банана я ще не бачив дякую джемінай що згенерував таку картинку вау вау (типу здивований)",
     spanLabel: "HIGH ENERGY",
     spanBg: "#ffffff",
-    spanTextColor: "#059669", // Emerald green
+    spanTextColor: "#059669",
     cardBg: "#f4f8e6",
     Icon: FaRegHeart,
     type: "blue",
@@ -27,10 +27,10 @@ export const BANANA_CARDS = [
     imageSrc: "/bananaImages/purpleBanan.png",
     title: "Фіолетовий Банан",
     description:
-      "Якщо чесно я так задовбався це все друкувати навіть якщо я швидко друкую це задовбує що триндець я не виживу в офісах напевно",
+      "Так добре фіолетовий банан це щось нове, я продовжу генерувати інші банани з різними кольорами",
     spanLabel: "CLASSIC PRANK",
-    spanBg: "#fce7e7", // Light pink/red
-    spanTextColor: "#9f1239", // Dark red
+    spanBg: "#fce7e7",
+    spanTextColor: "#9f1239",
     cardBg: "#eef2dc",
     Icon: FaShareAlt,
     type: "blue",
@@ -40,12 +40,12 @@ export const BANANA_CARDS = [
     imageSrc: "/bananaImages/blueBanan.png",
     title: "Голубий Банан",
     description:
-      "Оооомаааа гаддд голубий банан напевно робить людей голубими а ой неважливо я вже уно кукухой їду як видно",
+      "Оооомаааа гаддд голубий банан це тоже непогано голубий банан, давайте це буде зі смаком моризива",
     spanLabel: "COOL VIBES",
-    spanBg: "#14f195", // Bright cyan/mint
-    spanTextColor: "#064e3b", // Dark green
+    spanBg: "#14f195",
+    spanTextColor: "#064e3b",
     cardBg: "#f4f8e6",
-    Icon: FaRegSnowflake, // Assumed icon since it was covered by the alert
+    Icon: FaRegSnowflake,
     type: "red",
     id: 3,
   },
@@ -68,8 +68,8 @@ export const BANANA_CARDS = [
     description:
       "Цитат не буде вони занадто здорові для цих типу бананових карточок шкода шкода життя бентежне пишу всяку фігню ",
     spanLabel: "ALTERNATIVE",
-    spanBg: "#ffedd5", // Light orange
-    spanTextColor: "#9a3412", // Dark orange
+    spanBg: "#ffedd5",
+    spanTextColor: "#9a3412",
     cardBg: "#f4f8e6",
     Icon: FaBolt,
     type: "red",
@@ -84,7 +84,7 @@ export const BANANA_CARDS = [
     spanBg: "#14f195",
     spanTextColor: "#064e3b",
     cardBg: "#eef2dc",
-    Icon: FaLeaf, // Assumed icon since it was covered by the alert
+    Icon: FaLeaf,
     type: "orange",
     id: 6,
   },

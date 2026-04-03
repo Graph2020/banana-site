@@ -32,7 +32,6 @@ export default function History() {
         pin: true,
         start: "center center",
         end: isMobile ? "+=700" : "+=1000",
-        markers: true,
         onLeave: () => {
           gsap.to(bananaRef.current, {
             scale: 0,

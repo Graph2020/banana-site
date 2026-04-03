@@ -7,12 +7,14 @@ import { useSearchParams } from "next/navigation";
 import BananaFilterComponent from "../components/BananaFilterComponent";
 import { BANANA_CARDS } from "../consts";
 import Link from "next/link";
+
 export default function FilterBanana(): JSX.Element {
   const searchParams = useSearchParams();
   const banan = searchParams.get("banan");
   const filteredBananas = banan
     ? BANANA_CARDS.filter((banana) => banana.type === banan)
     : BANANA_CARDS;
+
   const bananas = filteredBananas.map((banana) => (
     <Link href={`/typeBanana/${banana.id}`} key={banana.id}>
       <BananaFilterComponent
@@ -28,6 +30,7 @@ export default function FilterBanana(): JSX.Element {
       />
     </Link>
   ));
+
   return (
     <main className="space-sections gap-elements bg-background-body font-body flex min-h-screen w-full flex-col items-center">
       <div className="mt-20 text-center">
@@ -37,8 +40,8 @@ export default function FilterBanana(): JSX.Element {
         </h1>
       </div>
       <p className="text-center text-black/60 lg:text-xl">
-        Братішка, неважливо який банан ти хочеш у нас він точно є красний синій
-        жовтий алмазний пофіг замовляй
+        Неважливо який банан ти хочеш у нас він точно є красний синій жовтий
+        алмазний замовляй
       </p>
       <SearchBanana />
       <div className="gap-elements flex flex-col md:flex-row md:flex-wrap">
