@@ -1,25 +1,30 @@
 "use client";
-import type { JSX } from "react";
+
 import React from "react";
 import { CiShoppingBasket } from "react-icons/ci";
 import { Banana3d } from "../components/Banana3d";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import { TextAnimation } from "../animation/TextAnimation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 import HeroText from "../components/HeroText";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Hero() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   });
+
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const spanRef = React.useRef<HTMLSpanElement>(
     null,
   ) as React.RefObject<HTMLSpanElement>;
+  const bananaRef = React.useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
-    // GSAP animations can be initialized here
     gsap.from(spanRef.current, {
       scale: 0,
       duration: 0.5,
@@ -31,6 +36,15 @@ export default function Hero() {
       duration: 1,
       ease: "elastic",
       delay: 1,
+    });
+
+    gsap.from(bananaRef.current, {
+      opacity: 0,
+      scale: 0,
+      duration: 1,
+      ease: "back",
+      delay: 0.5,
+      clearProps: "all",
     });
   }, []);
 
@@ -47,13 +61,17 @@ export default function Hero() {
         spanRef={spanRef}
       />
 
-      <div className="absolute top-100 z-20 h-96 w-full md:static md:right-32 md:h-full md:w-72">
+      <div
+        ref={bananaRef}
+        className="absolute top-100 left-0 z-20 h-96 w-full md:static md:right-32 md:h-full md:w-72"
+      >
         <Canvas>
           <directionalLight
             position={[0, 0, 2]}
             color={"white"}
             intensity={3}
           />
+          <OrbitControls enableZoom={false} />
           <ambientLight intensity={0.5} />
           <Banana3d
             position={[0, 0, 0]}

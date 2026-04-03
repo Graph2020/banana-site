@@ -4,10 +4,12 @@ import { SiGamebanana } from "react-icons/si";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 export default function History() {
   const bananaRef = useRef(null);
   const containerRef = useRef(null);
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" });
 
   useGSAP(() => {
     gsap.from(bananaRef.current, {
@@ -29,7 +31,7 @@ export default function History() {
         scrub: 1,
         pin: true,
         start: "center center",
-        end: "+=1000",
+        end: isMobile ? "+=700" : "+=1000",
         markers: true,
         onLeave: () => {
           gsap.to(bananaRef.current, {
@@ -53,8 +55,8 @@ export default function History() {
     });
   }, []);
   return (
-    <main className="gap-elements space-sections font-body bg-background-body flex min-h-screen w-full">
-      <div className="gap-elements mt-20 flex w-1/2 flex-col">
+    <main className="gap-elements lg:center-elements space-sections font-body bg-background-body flex min-h-screen w-full overflow-x-hidden">
+      <div className="gap-elements mt-20 flex w-1/2 flex-col md:w-64 md:text-lg">
         <p>
           Банан має стародавнє походження в Південно-Східній Азії та Малайському
           архіпелазі, де його почали одомашнювати ще в VIII–V тисячоліттях до
@@ -72,9 +74,21 @@ export default function History() {
           століттях завдяки португальцям, які завезли банани з Гвінеї на Канари,
           а згодом іспанці — на Гаїті.{" "}
         </p>
+        <p className="hidden md:block">
+          Однак у XIX столітті завдяки винаходу холодильних установок
+          (наприклад, Лоренцо Бейкером та Майнором Кейтом) розпочався справжній
+          бум експорту бананів у Європу та США, що перетворило цей фрукт на один
+          із найпоширеніших у світі. Сучасні сорти, такі як популярний
+          «Кавендіш», походять від диких видів Musa acuminata та Musa
+          balbisiana, хоча вони вразливі до грибкових захворювань через
+          відсутність генетичного різноманіття.
+        </p>
       </div>
 
-      <div className="center-elements mt-60 h-48" ref={containerRef}>
+      <div
+        className="center-elements order-1 mt-60 h-48 lg:mt-50 lg:self-start"
+        ref={containerRef}
+      >
         {/* 3. Put the BANANA ref on a clean inner div */}
         <div ref={bananaRef}>
           <SiGamebanana size={128} />

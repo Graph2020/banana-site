@@ -1,14 +1,40 @@
+"use client";
 import type { JSX } from "react";
-
 import React from "react";
 import { ImCool } from "react-icons/im";
 import { MdOutlineSpeed } from "react-icons/md";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function QualityBanana() {
+  const sectionRef = React.useRef<HTMLElement>(null);
+  useGSAP(() => {
+    if (!sectionRef.current) return;
+    gsap.from(sectionRef.current.children, {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        markers: true,
+      },
+    });
+  }, []);
   return (
-    <section className="space-sections font-body gap-elements center-elements min-h-screen flex-col bg-[#edf1d7] md:grid md:grid-cols-3 md:grid-rows-2">
-      <div className="gap-elements bg-primary text-secondary flex h-80 w-full flex-col rounded-4xl px-8 py-10">
+    <section
+      ref={sectionRef}
+      className="space-sections font-body gap-elements center-elements min-h-screen flex-col bg-[#edf1d7] md:grid md:grid-cols-3 md:grid-rows-2"
+    >
+      <div className="gap-elements bg-primary text-secondary mt-10 flex h-80 w-full flex-col rounded-4xl px-8 py-10 md:mt-0">
         <h2 className="mini-title font-headline">
           Кароче банан жоскій супер дупєр пакупаєм
         </h2>
@@ -42,6 +68,7 @@ export default function QualityBanana() {
             <FaArrowRight />
           </span>
         </span>
+
         <div className="relative h-30 w-full md:w-72">
           <Image
             className="rounded-3xl object-cover"
